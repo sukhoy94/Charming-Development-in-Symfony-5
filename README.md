@@ -8,3 +8,5 @@ symfony learning - p1
 `php -S 127.0.0.1:8000 -t public`
 or 
 `symfony serve`
+# Add annotations
+`composer requeire annotaions`
