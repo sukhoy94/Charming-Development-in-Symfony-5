@@ -32,6 +32,9 @@ class QuestionController extends AbstractController
      */
     public function sampleTwig(): Response
     {
-        return $this->render('sample.html.twig');
+        
+        return $this->render('sample.html.twig', [
+            'variable' => 'Lorem **ipsum**',
+        ]);
     }
 }
