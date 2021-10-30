@@ -9,5 +9,6 @@ symfony learning - p1
 or 
 `symfony serve`
 2. dump configs: `php bin/console config:dump twig`
+3. cache clear: `php bin/console cache:clear`
 # Add annotations
 `composer requeire annotaions`
