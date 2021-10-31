@@ -6,6 +6,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 
+use App\Entity\LogMessage;
 use App\Message\LogTextToFile;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,9 +18,18 @@ class QuestionController extends AbstractController
 {
     public function homepage(MessageBusInterface $messageBus, LoggerInterface $logger)
     {
-        $logHello = new LogTextToFile('hello ' . (new \DateTime())->format('Y-m-d H:i:s'));
-        $messageBus->dispatch($logHello);
+        $lm = new LogMessage();
+        $lm->setMessage('My message');
+        $lm->setCreatedAt(new \DateTimeImmutable());
+        $lm->setUpdatedAt(new \DateTimeImmutable());
+    
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($lm);
+        $entityManager->flush();
         
+//        $logHello = new LogTextToFile('hello ' . (new \DateTime())->format('Y-m-d H:i:s'));
+//        $messageBus->dispatch($logHello);
+//        
         return new Response('Welcome');
     }
     

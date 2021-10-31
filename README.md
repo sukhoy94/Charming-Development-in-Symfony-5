@@ -10,5 +10,6 @@ or
 `symfony serve`
 2. dump configs: `php bin/console config:dump twig`
 3. cache clear: `php bin/console cache:clear`
+4. run migration `php bin/console doctrine:migrations:migrate`
 # Add annotations
 `composer requeire annotaions`
