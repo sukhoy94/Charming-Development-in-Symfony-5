@@ -20,8 +20,6 @@ class QuestionController extends AbstractController
     {
         $lm = new LogMessage();
         $lm->setMessage('My message');
-        $lm->setCreatedAt(new \DateTimeImmutable());
-        $lm->setUpdatedAt(new \DateTimeImmutable());
     
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($lm);

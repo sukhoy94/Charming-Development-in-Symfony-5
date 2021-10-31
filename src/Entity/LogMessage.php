@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=LogMessageRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
 class LogMessage
 {
@@ -71,5 +72,21 @@ class LogMessage
         $this->updated_at = $updated_at;
 
         return $this;
+    }
+    
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAtValue(): void
+    {
+        $this->created_at = new \DateTimeImmutable();
+    }
+    
+    /**
+     * @ORM\PrePersist 
+     */
+    public function setUpdatedAtValue(): void
+    {
+        $this->updated_at = new \DateTimeImmutable();        
     }
 }
