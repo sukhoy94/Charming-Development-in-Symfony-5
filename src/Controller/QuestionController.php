@@ -20,24 +20,20 @@ class QuestionController extends AbstractController
     {
         $lm = new LogMessage();
         $lm->setMessage('My message');
-    
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($lm);
-        $entityManager->flush();
-        
-//        $logHello = new LogTextToFile('hello ' . (new \DateTime())->format('Y-m-d H:i:s'));
-//        $messageBus->dispatch($logHello);
-//        
+
+        $logHello = new LogTextToFile($lm);
+        $messageBus->dispatch($logHello);
+
         return new Response('Welcome');
     }
     
     /**
-     * @Route ("/annotation")
+     * @Route ("/test")
      * @return Response
      */
     public function sampleAnnotationAction(): Response
-    {
-        return new Response('yo from annotation');
+    {       
+        return new Response( 'test');
     }
     
     /**
