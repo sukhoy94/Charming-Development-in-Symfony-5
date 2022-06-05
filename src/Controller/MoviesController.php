@@ -12,15 +12,22 @@ class MoviesController extends AbstractController
     public function index(): Response
     {
         return $this->render('movies/index.html.twig', [
-            'controller_name' => 'MoviesController',
+            'variable' => 'test',
         ]);
     }
     
-    #[Route('/movies/{id}', name: 'app_single_movie')]
-    public function singleMovie(): Response
+    #[Route
+        (
+            '/movies/{id}', 
+            name: 'app_single_movie', 
+            defaults: ['id' => 1], 
+            methods: ['GET']
+        )
+    ]
+    public function singleMovie($id): Response
     {
         return $this->json([
-            'id' => 1
+            'id' => $id,
         ]);
     }
 }
