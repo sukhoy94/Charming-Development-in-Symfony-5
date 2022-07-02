@@ -81,3 +81,8 @@ Now index.twig.html will be the same as base.twig.html but with title "New title
 7. Global variables in twig
 8. What is APP_SECRET env variable and what it is used for ? 
 9. How to create database through symfony confole?
+10. What is encore? 
+
+```
+Symfony ships with a pure-JavaScript library - called Webpack Encore - that makes it a joy to work with CSS and JavaScript. You can use it, use something else, or create static CSS and JS files in your public/ directory directly and include them in your templates.
+```
